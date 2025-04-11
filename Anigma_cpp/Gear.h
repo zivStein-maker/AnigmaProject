@@ -13,6 +13,8 @@ public:
 	const std::string close();
 	void rotate();
 private:
-	char interface[26][2];
+	//26 rows for the 26 letters first colom is input and second in output.
+	char _interface[26][2];
+	void printGearState();///private function to help debuging.
 };
 
