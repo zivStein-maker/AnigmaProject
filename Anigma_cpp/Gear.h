@@ -6,14 +6,14 @@
 
 enum gearType
 {
-	first, second, third
+	first = '0', second = '1', third = '2'
 };
 
 class Gear
 {
 public:
 	Gear(const std::string& filePath ,gearType type);
-	Gear(const std::string& filePath, const std::string& password);
+	Gear(const std::string& filePath, const std::string& password, gearType type);
 	~Gear();
 	//const std::string close();
 	void rotate();
