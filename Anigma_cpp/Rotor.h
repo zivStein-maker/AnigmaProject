@@ -4,27 +4,26 @@
 
 #define LETTERS 26
 
-enum gearType
-{
-	first = '0', second = '1', third = '2'
-};
 
-class Gear
+
+class Rotor
 {
 public:
-	Gear(const std::string& filePath ,gearType type);
-	Gear(const std::string& filePath, const std::string& password, gearType type);
-	~Gear();
+	Rotor(const std::string& filePath ,char type);
+	Rotor(const std::string& filePath, const std::string& password, char type);
+	~Rotor();
+	char getFirstOutput(char let) const;
+	char getSecondOutput(char let) const;
 	//const std::string close();
-	void rotate();
-	void printGearState();///function to help debuging delete when every thing works
+	bool rotate();
+	void printRotorState();///function to help debuging delete when every thing works
 private:
 	//26 rows for the 26 letters first colom is input and second in output.
 	std::string settingsFile;
-	gearType _type;
+	char _type;
 	char _interface[26][2];
 	const std::string encryptSettings(const std::string& password);
 	const std::string decryptSettings(const std::string& password);
-	const std::string getGearSettings();
+	const std::string getRotorSettings();
 };
 
