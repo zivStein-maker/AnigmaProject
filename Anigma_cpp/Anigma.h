@@ -11,7 +11,7 @@ class Anigma
 public:
 	Anigma();
 	Anigma(const std::string& filePath);
-	Anigma(const std::string& filePath,int rotorAmount);
+	//Anigma(const std::string& filePath,int rotorAmount);
 	void start();
 	std::string parser(const std::string& inputString);
 	char encryptCharacter(char let);
@@ -22,4 +22,6 @@ private:
 	std::map<char, char> _plugBoard;
 	std::vector<Rotor*> _rotors;
 	int _rotorAmount;
+	std::string _filePath;
+	std::string getPlugBoardSettings();
 };

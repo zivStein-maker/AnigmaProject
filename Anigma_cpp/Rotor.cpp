@@ -35,6 +35,7 @@ Rotor::Rotor(const std::string& filePath, const std::string& password, char type
 		this->_interface[i][0] = static_cast<char>('a' + i);
 		this->_interface[i][1] = settings[settings.find(finder) + finder.length()];
 	}
+	file.close();
 }
 
 Rotor::~Rotor()
