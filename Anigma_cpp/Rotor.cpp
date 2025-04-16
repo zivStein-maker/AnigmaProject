@@ -42,8 +42,9 @@ Rotor::~Rotor()
 //takes the Rotor and lodes it in the file in my Enigma format
 {
 	const std::string rotorSettings = getRotorSettings();
-	std::fstream file(this->settingsFile);
-	file << rotorSettings;
+	std::ofstream file(this->settingsFile);
+	if(file.is_open())
+		file << rotorSettings;
 	file.close();
 }
 

@@ -7,7 +7,7 @@
 Enigma::Enigma()
 {
 	this->_rotorAmount = DEFAULT_AMOUNT;
-	_filePath = "settings//rotor.ang";
+	_filePath = "../../settings/settings.ang";
 	_plugBoard = generateRandomMapping();
 	_reflector = generateRandomMapping();
 
@@ -52,7 +52,7 @@ Enigma::~Enigma()
 		delete rotor;
 	}
 	_plugBoard.clear();
-	std::fstream file(_filePath);
+	std::ofstream file(_filePath);
 	file << plugBoardSettings << std::endl;
 	file << reflectorSettings << std::endl;
 	file.close();
@@ -79,7 +79,7 @@ std::string Enigma::parser(const std::string& inputString)
 	{
 		result += this->encryptCharacter(std::tolower(letter));
 	}
-	std::cout << result;
+	std::cout << result << std::endl;
 	return result;
 }
 
@@ -94,6 +94,7 @@ char Enigma::encryptCharacter(char let)
 	{
 		output = rotor->getFirstOutput(output);
 	}
+	output = _reflector[output];
 	for (int i = _rotors.size() - 1; i >= 0; --i) 
 	{
 		output = _rotors[i]->getSecondOutput(output);
@@ -195,4 +196,6 @@ void Enigma::setReflectorMapping(const std::string settings)
 int main()
 {
 	Enigma* e = new Enigma();
+	e->start();
+	delete e;
 }
