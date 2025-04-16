@@ -14,16 +14,14 @@ public:
 	~Rotor();
 	char getFirstOutput(char let) const;
 	char getSecondOutput(char let) const;
-	//const std::string close();
 	bool rotate();
-	void printRotorState();///function to help debuging delete when every thing works
 private:
 	//26 rows for the 26 letters first colom is input and second in output.
 	std::string settingsFile;
 	char _type;
 	char _interface[26][2];
-	const std::string encryptSettings(const std::string& password);
-	const std::string decryptSettings(const std::string& password);
+	//const std::string encryptSettings(const std::string& password);
+	//const std::string decryptSettings(const std::string& password);
 	const std::string getRotorSettings();
 };
 
