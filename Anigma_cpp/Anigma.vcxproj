@@ -134,6 +134,9 @@
     <ClCompile Include="Enigma.cpp" />
     <ClCompile Include="Rotor.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="settings\gear.ang" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "Enigma.h"
 #include <sstream>
 #include <fstream>
@@ -19,7 +20,9 @@ Enigma::Enigma()
 
 Enigma::Enigma(const std::string& filePath)
 {
-	std::fstream file(filePath);
+	std::ifstream file(filePath);
+	if (!file.is_open())
+		std::cout << "file isnt open\n";
 	std::string line = "";
 	std::string plugBoardSettings = "";
 	std::string reflectorSettings = "";
@@ -79,7 +82,7 @@ std::string Enigma::parser(const std::string& inputString)
 	{
 		result += this->encryptCharacter(std::tolower(letter));
 	}
-	std::cout << result << std::endl;
+	std::cout << " >> " << result << std::endl;
 	return result;
 }
 
@@ -195,7 +198,8 @@ void Enigma::setReflectorMapping(const std::string settings)
 
 int main()
 {
-	Enigma* e = new Enigma();
+	
+	Enigma* e = new Enigma("../Anigma_cpp/settings/gear.ang");
 	e->start();
 	delete e;
 }
